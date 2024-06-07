@@ -249,11 +249,51 @@ for vendor_build_prop in $(sudo find "$GITHUB_WORKSPACE"/"${device}"/ -type f -n
   sudo sed -i 's/build.date.utc=[^*]*/build.date.utc='"${build_utc}"'/' "${vendor_build_prop}"
   sudo sed -i 's/ro.mi.os.version.incremental=[^*]*/ro.mi.os.version.incremental='"${port_os_version}"'/' "${vendor_build_prop}"
 done
-# 精简部分应用
-echo -e "${Red}- 精简部分应用"
-apps=("MIGalleryLockscreen" "MIUIDriveMode" "MIUIDuokanReader" "MIUIGameCenter" "MIUINewHome" "MIUIYoupin" "MIUIHuanJi" "MIUIMiDrive" "MIUIVirtualSim" "ThirdAppAssistant" "XMRemoteController" "MIUIVipAccount" "MiuiScanner" "Xinre" "SmartHome" "MiShop" "MiRadio" "MIUICompass" "MediaEditor" "BaiduIME" "iflytek.inputmethod" "MIService" "MIUIEmail" "MIUIVideo" "MIUIMusicT")
+# 精简部分应用1
+echo -e "${Red}- 精简部分应用1"
+apps=("AnalyticsCore" "CarWith" "CatchLog""com.xiaomi.ugd" "GoogleLocationHistory" "HybridPlatform" "MiBugReport" "MIUIgreenguard" "MIUIReporter" "OtaProvision" "OTrPBroker" "PaymentService" "remoteSimLockAuthentication" "remotesimlockservice" "RideModeAudio" "SwitchAccess" "system"  "talkback"  "Updater" "UPTsmService" "WMService")
+for app in "${apps[@]}"; do
+  appsui=$(sudo find "$GITHUB_WORKSPACE"/images/product/app/ -type d -iname "*${app}*")
+  if [[ -n $appsui ]]; then
+    echo -e "${Yellow}- 找到精简目录: $appsui"
+    sudo rm -rf "$appsui"
+  fi
+done
+# 精简部分应用2
+echo -e "${Red}- 精简部分应用2"
+apps=("MIGalleryLockscreen" "MIpay" "MIUIDriveMode" "MIUIDuokanReader" "MIUIGameCenter" "MIUINewHome" "MIUIYoupin" "MIUIHuanJi" "MIUIMiDrive" "MIUIVirtualSim" "ThirdAppAssistant" "XMRemoteController" "MIUIVipAccount" "MiuiScanner" "Xinre" "SmartHome" "MiShop" "MiRadio" "MIUICompass" "BaiduIME" "iflytek.inputmethod" "MIUIEmail" "MIUIVideo" "MIUIMusicT" "Health" "MIService")
 for app in "${apps[@]}"; do
   appsui=$(sudo find "$GITHUB_WORKSPACE"/images/product/data-app/ -type d -iname "*${app}*")
+  if [[ -n $appsui ]]; then
+    echo -e "${Yellow}- 找到精简目录: $appsui"
+    sudo rm -rf "$appsui"
+  fi
+done
+# 精简部分应用3
+echo -e "${Red}- 精简部分应用3"
+apps=("SystemHelper")
+for app in "${apps[@]}"; do
+  appsui=$(sudo find "$GITHUB_WORKSPACE"/images/product/pangu/system/priv-app/ -type d -iname "*${app}*")
+  if [[ -n $appsui ]]; then
+    echo -e "${Yellow}- 找到精简目录: $appsui"
+    sudo rm -rf "$appsui"
+  fi
+done
+# 精简部分应用4
+echo -e "${Red}- 精简部分应用4"
+apps=("AutoRegistration" "ConfigUpdater" "MiGameCenterSDKService" "MIbrowser" "MIUIBarrageV2" "RegService")
+for app in "${apps[@]}"; do
+  appsui=$(sudo find "$GITHUB_WORKSPACE"/images/product/priv-app/ -type d -iname "*${app}*")
+  if [[ -n $appsui ]]; then
+    echo -e "${Yellow}- 找到精简目录: $appsui"
+    sudo rm -rf "$appsui"
+  fi
+done
+# 精简部分应用5
+echo -e "${Red}- 精简部分应用5"
+apps=("BuiltInPrintService" "CallLogBackup" "CellBroadcastLegacyApp" "CellBroadcastServiceModulePlatform" "MusicFX" "Tag" "UserDictionaryProvider")
+for app in "${apps[@]}"; do
+  appsui=$(sudo find "$GITHUB_WORKSPACE"/images/system/system/priv-app/ -type d -iname "*${app}*")
   if [[ -n $appsui ]]; then
     echo -e "${Yellow}- 找到精简目录: $appsui"
     sudo rm -rf "$appsui"
