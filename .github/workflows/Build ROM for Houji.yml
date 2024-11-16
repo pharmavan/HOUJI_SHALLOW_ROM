@@ -5,11 +5,11 @@ on:
       URL:
         description: "移植包下载地址"
         required: true
-        default: 'https://ultimateota.d.miui.com/OS1.0.21.0.UNACNXM/miui_AURORA_OS1.0.21.0.UNACNXM_f4f297a63f_14.0.zip?t=1731743545&s=ff54a4335ae0b21b58e575d194a3acf9'
+        default: 'https://bn.d.miui.com/OS1.0.21.0.UNACNXM/miui_AURORA_OS1.0.21.0.UNACNXM_f4f297a63f_14.0.zip'
       VENDOR_URL:
         description: "底包下载地址"
         required: true
-        default: 'https://ultimateota.d.miui.com/OS1.0.45.0.UNCCNXM/miui_HOUJI_OS1.0.45.0.UNCCNXM_8597412d79_14.0.zip?t=1731741027&s=8512a1101dec5966e4fc0cb1e486be6e'
+        default: 'https://bn.d.miui.com/OS1.0.45.0.UNCCNXM/miui_HOUJI_OS1.0.45.0.UNCCNXM_8597412d79_14.0.zip'
 
 jobs:
   build:
